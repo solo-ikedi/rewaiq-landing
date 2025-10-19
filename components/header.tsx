@@ -19,11 +19,13 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <nav className="container mx-auto flex h-16 items-center justify-between px-4">
         <div className="flex items-center gap-2">
-          <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
-            <span className="text-xl font-bold text-primary-foreground">R</span>
-          </div>
-          <span className="font-poppins text-xl font-bold text-primary">Rewaiq</span>
-        </div>
+  <img 
+    src="/rewaiq-logo.ico" 
+    alt="Rewaiq logo" 
+    className="w-8 h-8"
+  />
+  <span className="font-bold text-xl text-slate-900">Rewaiq</span>
+</div>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
