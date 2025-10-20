@@ -7,10 +7,12 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           {/* Brand */}
           <div className="md:col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="h-10 w-10 rounded-lg bg-secondary flex items-center justify-center">
-                <span className="text-2xl font-bold text-secondary-foreground">R</span>
-              </div>
+             <div className="flex items-center gap-2">
+  <img 
+    src="/rewaiq-logo.ico" 
+    alt="Rewaiq logo" 
+    className="w-8 h-8"
+  />
               <span className="font-poppins text-2xl font-bold">Rewaiq</span>
             </div>
             <p className="text-primary-foreground/80 leading-relaxed mb-6 max-w-md">
@@ -90,11 +92,11 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="mailto:hello@rewaiq.com"
+                  href="mailto:info@rewaiq.com"
                   className="text-primary-foreground/80 hover:text-secondary transition-colors flex items-center gap-2"
                 >
                   <Mail className="h-4 w-4" />
-                  hello@rewaiq.com
+                  info@rewaiq.com
                 </a>
               </li>
               <li>
@@ -107,7 +109,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:partners@rewaiq.com"
+                  href="mailto:founder@rewaiq.com"
                   className="text-primary-foreground/80 hover:text-secondary transition-colors"
                 >
                   Partnerships
