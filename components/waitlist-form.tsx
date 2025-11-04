@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -16,16 +15,34 @@ export default function WaitlistForm() {
     e.preventDefault()
     setLoading(true)
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+    try {
+      await fetch("https://formsubmit.co/ajax/info@rewaiq.com.ng", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          _captcha: false,
+          _next: "https://rewaiq.com.ng/thank-you",
+        }),
+      })
 
-    setSubmitted(true)
+      setSubmitted(true)
+      setEmail("")
+    } catch (err) {
+      console.error("Error submitting form:", err)
+      alert("Oops! Something went wrong. Please try again.")
+    }
+
     setLoading(false)
-    setEmail("")
   }
 
   return (
-    <section id="waitlist" className="py-20 md:py-32 bg-primary text-primary-foreground relative overflow-hidden">
+    <section
+      id="waitlist"
+      className="py-20 md:py-32 bg-primary text-primary-foreground relative overflow-hidden"
+    >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div
@@ -72,6 +89,10 @@ export default function WaitlistForm() {
                 >
                   {loading ? "Joining..." : "Join Waitlist"}
                 </Button>
+
+                {/* Spam Protection Hidden Inputs */}
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_next" value="https://rewaiq.com.ng/thank-you" />
               </form>
 
               <p className="text-sm text-primary-foreground/70 mt-4">No spam, ever. Unsubscribe anytime.</p>
